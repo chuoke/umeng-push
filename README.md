@@ -89,7 +89,7 @@ $this->app->when(UmengPushChannel::class)
           ->give($config);
 ```
 
-在通知类中添加响应内容
+在通知类中添加相应内容
 
 ```php
 <?php
