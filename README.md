@@ -184,7 +184,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
--   [chuoke](https://github.com/)
+-   [chuoke](https://github.com/chuoke)
 -   [All Contributors](../../contributors)
 
 ## License
