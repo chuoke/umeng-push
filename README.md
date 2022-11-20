@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/chuoke/umeng-push.svg?style=flat-square)](https://packagist.org/packages/chuoke/umeng-push)
 [![Tests](https://github.com/chuoke/umeng-push/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/chuoke/umeng-push/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/chuoke/umeng-push.svg?style=flat-square)](https://packagist.org/packages/chuoke/umeng-push)
+[![Fix PHP code style issues](https://github.com/chuoke/umeng-push/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/chuoke/umeng-push/actions/workflows/fix-php-code-style-issues.yml)
 
 ## Installation
 
