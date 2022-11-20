@@ -28,7 +28,7 @@ class IosPayload implements Payload
     /** @var string 消息的打扰级别，iOS15起支持，四个选项"passive", "active", "time-sensitive", "critical" */
     protected $interruption_level;
 
-    /** @var array 自定义参数  */
+    /** @var array 自定义参数 */
     protected $custom_params = [];
 
     /**
@@ -45,81 +45,87 @@ class IosPayload implements Payload
     }
 
     /**
-     * @param string $subtitle
-     * @param string $title
-     * @param string $body
+     * @param  string  $subtitle
+     * @param  string  $title
+     * @param  string  $body
      * @return $this
      */
-    public function alert(string $title, string $body = "", string $subtitle = "")
+    public function alert(string $title, string $body = '', string $subtitle = '')
     {
         $this->alert = [
             'title' => $title,
             'subtitle' => $subtitle,
-            'body' => $body
+            'body' => $body,
         ];
+
         return $this;
     }
 
     /**
-     * @param mixed $badge
+     * @param  mixed  $badge
      * @return $this
      */
     public function badge($badge)
     {
         $this->badge = $badge;
+
         return $this;
     }
 
     /**
-     * @param mixed $sound
+     * @param  mixed  $sound
      * @return $this
      */
     public function sound($sound)
     {
         $this->sound = $sound;
+
         return $this;
     }
 
     /**
      * 是否静默推送
      *
-     * @param bool $content_available
+     * @param  bool  $content_available
      * @return $this
      */
     public function contentAvailable(bool $content_available)
     {
         $this->content_available = $content_available;
+
         return $this;
     }
 
     /**
      * iOS8才支持该字段
      *
-     * @param mixed $category
+     * @param  mixed  $category
      * @return $this
      */
     public function category($category)
     {
         $this->category = $category;
+
         return $this;
     }
 
     /**
      * 分组折叠，设置UNNotificationContent的threadIdentifier属性
      *
-     * @param string $threadId
+     * @param  string  $threadId
      * @return $this
      */
     public function threadId($threadId)
     {
         $this->thread_id = $threadId;
+
         return $this;
     }
 
     /**
      * 消息的打扰级别，iOS15起支持，四个选项"passive", "active", "time-sensitive", "critical"
      *
-     * @param string $level
+     * @param  string  $level
      * @return $this
      */
     protected function interruptionLevel($level)
@@ -172,12 +178,13 @@ class IosPayload implements Payload
     /**
      * 设置自定义内容
      *
-     * @param array $customParams
+     * @param  array  $customParams
      * @return $this
      */
     public function customParams(array $customParams)
     {
         $this->custom_params = $customParams;
+
         return $this;
     }
 
@@ -185,6 +192,7 @@ class IosPayload implements Payload
      * 检查自定义参数是否有效
      *
      * @return void
+     *
      * @throws UmengPushException
      */
     protected function checkCustomParams()
@@ -193,7 +201,7 @@ class IosPayload implements Payload
             $count = count($this->custom_params);
             $checkData = ['d' => 'd', 'p' => 'p'];
             if (count(array_merge($this->custom_params, $checkData)) != ($count + count($checkData))) {
-                throw new UmengPushException(implode(',', array_keys($checkData)) . "为友盟保留字段");
+                throw new UmengPushException(implode(',', array_keys($checkData)).'为友盟保留字段');
             }
         }
     }
@@ -202,6 +210,7 @@ class IosPayload implements Payload
      * 组合数据
      *
      * @return array
+     *
      * @throws UmengPushException
      */
     public function toArray(): array
@@ -210,7 +219,7 @@ class IosPayload implements Payload
 
         $available = intval($this->content_available);
         if ($available != 1 && empty($this->alert)) {
-            throw new UmengPushException("alert 内容不能为空");
+            throw new UmengPushException('alert 内容不能为空');
         }
 
         $aps = array_filter([

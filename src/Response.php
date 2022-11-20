@@ -28,7 +28,7 @@ class Response
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isOk()
     {
@@ -36,7 +36,7 @@ class Response
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isFail()
     {
@@ -51,11 +51,12 @@ class Response
      */
     protected function retIs($flag)
     {
-        return !$this->response || $this->response['ret'] === $flag;
+        return ! $this->response || $this->response['ret'] === $flag;
     }
 
     /**
      * 获取返回的原始信息
+     *
      * @return string
      */
     public function original()
@@ -70,7 +71,7 @@ class Response
      */
     public function data($key = null, $default = null)
     {
-        if (!$this->response) {
+        if (! $this->response) {
             return $default;
         }
 
@@ -80,7 +81,7 @@ class Response
 
         $data = $this->response['data'];
         foreach (explode('.', $key) as $k) {
-            if (!array_key_exists($k, $data)) {
+            if (! array_key_exists($k, $data)) {
                 return $default;
             }
 

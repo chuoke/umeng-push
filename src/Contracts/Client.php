@@ -22,6 +22,7 @@ interface Client
      *
      * @param  Message  $message
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function send(Message $message);
@@ -33,6 +34,7 @@ interface Client
      *
      * @param  string  $taskId
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function status($taskId);
@@ -44,6 +46,7 @@ interface Client
      *
      * @param  string  $taskId
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function taskStat($taskId);
@@ -65,6 +68,7 @@ interface Client
      *
      * @param  string|array  $content
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function upload($content);

@@ -48,7 +48,7 @@ class Config
     /**
      * 设置 APP key
      *
-     * @param string $appKey
+     * @param  string  $appKey
      * @return $this
      */
     public function appKey(string $appKey)
@@ -61,36 +61,39 @@ class Config
     /**
      * 设置 APP secret
      *
-     * @param string $appSecret
+     * @param  string  $appSecret
      * @return $this
      */
     public function appSecret(string $appSecret)
     {
         $this->app_secret = $appSecret;
+
         return $this;
     }
 
     /**
      * 设置接口基础地址
      *
-     * @param string $baseUrl
+     * @param  string  $baseUrl
      * @return $this
      */
     public function baseUrl(string $baseUrl)
     {
         $this->base_url = $baseUrl;
+
         return $this;
     }
 
     /**
      * 设置推送环境模式
      *
-     * @param string $productionMode
+     * @param  string  $productionMode
      * @return $this
      */
     public function productionMode(string $productionMode)
     {
         $this->production_mode = $productionMode;
+
         return $this;
     }
 

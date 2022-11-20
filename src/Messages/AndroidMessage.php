@@ -31,7 +31,7 @@ class AndroidMessage extends Message
     /**
      * 系统弹窗，只有display_type=notification时有效，表示华为、小米、oppo、vivo、魅族的设备离线时走系统通道下发时打开指定页面acitivity的完整包路径。
      *
-     * @param string $channelActivity
+     * @param  string  $channelActivity
      * @return $this
      */
     public function channelActivity($channelActivity)
@@ -46,7 +46,7 @@ class AndroidMessage extends Message
      *
      * @see https://dev.mi.com/console/doc/detail?pId=2086 小米推送文档
      *
-     * @param string $xiaomiChannelId
+     * @param  string  $xiaomiChannelId
      * @return $this
      */
     public function xiaomiChannelId($xiaomiChannelId)
@@ -61,7 +61,7 @@ class AndroidMessage extends Message
      *
      * @see https://dev.vivo.com.cn/documentCenter/doc/359 vivo消息推送分类功能说明
      *
-     * @param string $vivoClassification
+     * @param  string  $vivoClassification
      * @return $this
      */
     public function vivoClassification($vivoClassification)
@@ -79,7 +79,7 @@ class AndroidMessage extends Message
      *
      * @see https://open.oppomobile.com/new/developmentDoc/info?id=11227 oppo推送私信通道申请
      *
-     * @param string $oppoChannelId
+     * @param  string  $oppoChannelId
      * @return $this
      */
     public function oppoChannelId($oppoChannelId)
@@ -94,7 +94,7 @@ class AndroidMessage extends Message
      *
      * @see https://developer.umeng.com/docs/67966/detail/272597 华为角标使用说明
      *
-     * @param string $mainActivity
+     * @param  string  $mainActivity
      * @return $this
      */
     public function mainActivity($mainActivity)
@@ -107,7 +107,7 @@ class AndroidMessage extends Message
     /**
      * 华为消息分类 LOW：资讯营销类消息，NORMAL：服务与通讯类消息
      *
-     * @param string $huaweiChannelImportance
+     * @param  string  $huaweiChannelImportance
      * @return $this
      */
     public function huaweiChannelImportance($huaweiChannelImportance)
@@ -122,7 +122,7 @@ class AndroidMessage extends Message
      *
      * @see https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-priority-0000001181716924 华为消息分类
      *
-     * @param string $huaweiChannelCategory
+     * @param  string  $huaweiChannelCategory
      * @return $this
      */
     public function huaweiChannelCategory($huaweiChannelCategory)
@@ -141,6 +141,7 @@ class AndroidMessage extends Message
     public function payload(AndroidPayload $payload)
     {
         $this->payload = $payload;
+
         return $this;
     }
 
@@ -153,6 +154,7 @@ class AndroidMessage extends Message
     public function policy(AndroidPolicy $policy)
     {
         $this->policy = $policy;
+
         return $this;
     }
 
@@ -169,8 +171,8 @@ class AndroidMessage extends Message
                 'huawei_channel_importance' => $this->huawei_channel_importance,
                 'huawei_channel_category' => $this->huawei_channel_category,
             ], function ($item) {
-                return !is_null($item);
-            })
+                return ! is_null($item);
+            }),
         ]);
     }
 }

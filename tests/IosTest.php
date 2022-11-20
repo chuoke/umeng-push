@@ -1,11 +1,11 @@
 <?php
 
 use Chuoke\UmengPush\Config;
-use Chuoke\UmengPush\Response;
-use Chuoke\UmengPush\UmengPusher;
-use Chuoke\UmengPush\Policies\IosPolicy;
 use Chuoke\UmengPush\Messages\IosMessage;
 use Chuoke\UmengPush\Payloads\IosPayload;
+use Chuoke\UmengPush\Policies\IosPolicy;
+use Chuoke\UmengPush\Response;
+use Chuoke\UmengPush\UmengPusher;
 
 it('can ability to initiate requests with ios message', function () {
     $pusher = UmengPusher::make(Config::make(umeng_push_config()));

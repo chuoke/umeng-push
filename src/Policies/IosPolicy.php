@@ -13,12 +13,13 @@ class IosPolicy extends Policy
     /**
      * iOS可用，多条带有相同apns_collapse_id的消息，iOS设备仅展示最新的一条，字段长度不得超过64bytes
      *
-     * @param string $apnsCollapseId
+     * @param  string  $apnsCollapseId
      * @return $this
      */
     public function apnsCollapseId(string $apnsCollapseId)
     {
         $this->apns_collapse_id = $apnsCollapseId;
+
         return $this;
     }
 

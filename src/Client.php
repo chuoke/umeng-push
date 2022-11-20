@@ -2,9 +2,9 @@
 
 namespace Chuoke\UmengPush;
 
+use Chuoke\UmengPush\Contracts\Client as ClientInterface;
 use Chuoke\UmengPush\Contracts\Message;
 use Chuoke\UmengPush\Exceptions\UmengPushException;
-use Chuoke\UmengPush\Contracts\Client as ClientInterface;
 
 class Client implements ClientInterface
 {
@@ -19,7 +19,7 @@ class Client implements ClientInterface
     /**
      * 实例化
      *
-     * @param Config|null $config
+     * @param  Config|null  $config
      * @return static
      */
     public static function make(Config $config = null)
@@ -36,6 +36,7 @@ class Client implements ClientInterface
     public function config(Config $config)
     {
         $this->config = $config;
+
         return $this;
     }
 
@@ -56,6 +57,7 @@ class Client implements ClientInterface
      * 发送消息
      *
      * @see https://developer.umeng.com/docs/67966/detail/68343#h1-u6D88u606Fu53D1u90014
+     *
      * @param  Message  $message
      * @return Response
      */
@@ -74,8 +76,10 @@ class Client implements ClientInterface
      * 消息状态查询
      *
      * @see https://developer.umeng.com/docs/67966/detail/68343#h1-u4EFBu52A1u7C7Bu6D88u606Fu72B6u6001u67E5u8BE25
+     *
      * @param  mixed  $taskId
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function status($taskId)
@@ -89,8 +93,10 @@ class Client implements ClientInterface
      * 任务送达数据查询
      *
      * @see https://developer.umeng.com/docs/67966/detail/68343#p-27x-xes-qz2
+     *
      * @param  mixed  $taskId
      * @return Response
+     *
      * @throws UmengPushException
      */
     public function taskStat($taskId)
@@ -104,6 +110,7 @@ class Client implements ClientInterface
      * 消息撤销
      *
      * @see https://developer.umeng.com/docs/67966/detail/68343#h1-u4EFBu52A1u7C7Bu6D88u606Fu53D6u6D886
+     *
      * @param  mixed  $taskId
      * @return Response
      */
@@ -118,6 +125,7 @@ class Client implements ClientInterface
      * 文件上传
      *
      * @see https://developer.umeng.com/docs/67966/detail/68343#h1-u6587u4EF6u4E0Au4F207
+     *
      * @param  string|array  $content
      * @return Response
      */
@@ -137,7 +145,7 @@ class Client implements ClientInterface
      */
     protected function makeSign($url, $body)
     {
-        return md5('POST' . $url . $body . $this->config->app_secret);
+        return md5('POST'.$url.$body.$this->config->app_secret);
     }
 
     /**
@@ -149,13 +157,13 @@ class Client implements ClientInterface
      */
     public function request($api, array $data)
     {
-        if (!$this->config || !$this->config->app_key || !$this->config->app_secret) {
+        if (! $this->config || ! $this->config->app_key || ! $this->config->app_secret) {
             throw new UmengPushException('缺少必要的配置项');
         }
 
-        $url = $this->config->base_url . $api;
+        $url = $this->config->base_url.$api;
         $sign = $this->makeSign($url, $postBody = json_encode($data));
-        $url = $url . '?sign=' . $sign;
+        $url = $url.'?sign='.$sign;
 
         return $this->doRequest($url, $postBody);
     }

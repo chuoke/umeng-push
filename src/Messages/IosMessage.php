@@ -16,6 +16,7 @@ class IosMessage extends Message
     public function payload(IosPayload $payload)
     {
         $this->payload = $payload;
+
         return $this;
     }
 
@@ -28,6 +29,7 @@ class IosMessage extends Message
     public function policy(IosPolicy $policy)
     {
         $this->policy = $policy;
+
         return $this;
     }
 }

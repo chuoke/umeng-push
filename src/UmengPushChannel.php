@@ -5,7 +5,7 @@ namespace Chuoke\UmengPush;
 use Chuoke\UmengPush\Contracts\Message;
 use Chuoke\UmengPush\Messages\AndroidMessage;
 use Chuoke\UmengPush\Messages\IosMessage;
-use \Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Notification;
 
 class UmengPushChannel
 {

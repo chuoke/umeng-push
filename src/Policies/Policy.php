@@ -28,36 +28,39 @@ class Policy implements PolicyInterface
      *
      * 注意，只对任务类消息生效
      *
-     * @param string $startTime yyyy-MM-dd HH:mm:ss
+     * @param  string  $startTime yyyy-MM-dd HH:mm:ss
      * @return $this
      */
     public function startTime(string $startTime)
     {
         $this->start_time = $startTime;
+
         return $this;
     }
 
     /**
      * 消息过期时间
      *
-     * @param string $expireTime
+     * @param  string  $expireTime
      * @return $this
      */
     public function expireTime(string $expireTime)
     {
         $this->expire_time = $expireTime;
+
         return $this;
     }
 
     /**
      * 消息外部编号，用于消息发送接口对任务类消息的幂等性保证
      *
-     * @param string $outBizNo
+     * @param  string  $outBizNo
      * @return $this
      */
     public function outBizNo(string $outBizNo)
     {
         $this->out_biz_no = $outBizNo;
+
         return $this;
     }
 

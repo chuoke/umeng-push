@@ -2,8 +2,8 @@
 
 namespace Chuoke\UmengPush;
 
-use Chuoke\UmengPush\Messages\Message;
 use Chuoke\UmengPush\Contracts\Client as ClientInterface;
+use Chuoke\UmengPush\Messages\Message;
 use RuntimeException;
 
 /**
@@ -79,7 +79,7 @@ class UmengPusher
      */
     public function configToCilent($config = null)
     {
-        if (!$this->client) {
+        if (! $this->client) {
             return $this;
         }
 
@@ -94,7 +94,7 @@ class UmengPusher
 
     public function __call($name, $arguments)
     {
-        if (!$this->client) {
+        if (! $this->client) {
             $this->client = Client::make();
             $this->configToCilent();
         }

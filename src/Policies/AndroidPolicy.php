@@ -7,19 +7,19 @@ namespace Chuoke\UmengPush\Policies;
  */
 class AndroidPolicy extends Policy
 {
-
     /** @var int 发送限速，每秒发送的最大条数。最小值1000 */
     private $max_send_num;
 
     /**
      * 设置发送限速，每秒发送的最大条数
      *
-     * @param int $maxSendNum
+     * @param  int  $maxSendNum
      * @return $this
      */
     public function maxSendNum(int $maxSendNum)
     {
         $this->max_send_num = $maxSendNum;
+
         return $this;
     }
 

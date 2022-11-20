@@ -75,7 +75,7 @@ class Message implements MessageInterface
     /**
      * 设置消息发送类型
      *
-     * @param string $type
+     * @param  string  $type
      * @return $this
      */
     protected function type(string $type)
@@ -148,32 +148,34 @@ class Message implements MessageInterface
     /**
      * 设置设备号
      *
-     * @param mixed $device_tokens
+     * @param  mixed  $device_tokens
      * @return $this
      */
     public function deviceTokens($device_tokens)
     {
         $this->device_tokens = $device_tokens;
+
         return $this;
     }
 
     /**
      * 设置别名类型
      *
-     * @param mixed $alias_type
+     * @param  mixed  $alias_type
      * @return $this
      */
     public function aliasType($alias_type)
     {
         $this->alias_type = $alias_type;
+
         return $this;
     }
 
     /**
      * 设置别名
      *
-     * @param mixed $alias
-     * @param mixed $alias_type
+     * @param  mixed  $alias
+     * @param  mixed  $alias_type
      * @return $this
      */
     public function alias($alias, $alias_type = null)
@@ -190,22 +192,24 @@ class Message implements MessageInterface
     /**
      * 设置文件ID
      *
-     * @param mixed $file_id
+     * @param  mixed  $file_id
      * @return $this
      */
     public function fileId($file_id)
     {
         $this->file_id = $file_id;
+
         return $this;
     }
 
     /**
-     * @param array $filter
+     * @param  array  $filter
      * @return $this
      */
     public function filter(array $filter)
     {
         $this->filter = $filter;
+
         return $this;
     }
 
@@ -218,6 +222,7 @@ class Message implements MessageInterface
     public function description($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -225,11 +230,12 @@ class Message implements MessageInterface
      * 组合内容
      *
      * @return array
+     *
      * @throws UmengPushException
      */
     public function toArray()
     {
-        if (!$this->type) {
+        if (! $this->type) {
             throw new UmengPushException('消息发送类型必须设定');
         }
 
@@ -244,7 +250,7 @@ class Message implements MessageInterface
             'policy' => $this->policy ? $this->policy->toArray() : null,
             'description' => $this->description ?: null,
         ], function ($item) {
-            return !is_null($item);
+            return ! is_null($item);
         });
     }
 }

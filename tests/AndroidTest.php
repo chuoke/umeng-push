@@ -1,11 +1,11 @@
 <?php
 
 use Chuoke\UmengPush\Config;
-use Chuoke\UmengPush\Response;
-use Chuoke\UmengPush\UmengPusher;
 use Chuoke\UmengPush\Messages\AndroidMessage;
 use Chuoke\UmengPush\Payloads\AndroidPayload;
 use Chuoke\UmengPush\Policies\AndroidPolicy;
+use Chuoke\UmengPush\Response;
+use Chuoke\UmengPush\UmengPusher;
 
 it('can ability to initiate requests with android message', function () {
     $pusher = UmengPusher::make(Config::make(umeng_push_config()));
